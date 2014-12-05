@@ -15,7 +15,16 @@ set cindent		        " use C-style indenting
 set tabstop=4		    " set tab to 4 spaces
 set shiftwidth=4	    " set tab to 4 space
 set expandtab		    " replace tab with spaces
+set laststatus=2        " Always show the status bar.
+set numberwidth=4       " By default set number column width to 4.
+set diffopt+=vertical   " Always use vertical diffs.
 
+" Automatic indentation.
+set smartindent
+set autoindent
+
+" Always have at least 5 lines at the bottom of the screen.
+set scrolloff=5
 
 " Only do this part when compiled with support for autocommands
 if has("autocmd")
@@ -24,7 +33,7 @@ if has("autocmd")
   " Set wrapping to 78 for text files
   autocmd BufRead,BufNewFile *.txt setlocal tw=78 fo+=t
   " Set wrapping to 78 for C, C++ and Header files
-  autocmd BufRead,BufNewFile *.cpp,*.c,*.h setlocal tw=72 fo+=t
+  autocmd BufRead,BufNewFile *.cpp,*.hpp,*.c,*.h setlocal tw=72 fo+=t
   " Automatically highlight characters in lines after the 78th or 70th column
   autocmd BufEnter * highlight OverLength ctermfg=darkgrey
   autocmd BufEnter * match OverLength /\%79v.*/
@@ -59,11 +68,13 @@ endif
 " Switch syntax highlighting on, when the terminal has colors
 if &t_Co > 2 || has("gui_running")
     syntax on
-    "set hlsearch " Also switch on highlighting the last used search pattern.
+    " Incremental searching, jump to pattern matched so far.
+    set incsearch
+    "Also switch on highlighting the last used search pattern.
+    set hlsearch
+    " Unhighlight after search using <Leader>n
+    nnoremap <silent> <Leader>n :noh<CR>
 endif
-
-" Always use vertical diffs
-set diffopt+=vertical
 
 filetype plugin on
 
