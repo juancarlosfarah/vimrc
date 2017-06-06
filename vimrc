@@ -12,8 +12,8 @@ set history=50          " keep 50 lines of command line history
 set ruler               " show the cursor position all the time
 set number              " show line numbers
 set cindent             " use C-style indenting
-set tabstop=4           " set tab to 4 spaces
-set shiftwidth=4        " set tab to 4 space
+set tabstop=4           " set tab to 2 spaces
+set shiftwidth=4        " set tab to 2 space
 set expandtab           " replace tab with spaces
 set laststatus=2        " Always show the status bar.
 set numberwidth=4       " By default set number column width to 4.
