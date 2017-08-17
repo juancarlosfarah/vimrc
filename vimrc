@@ -18,6 +18,7 @@ set expandtab           " replace tab with spaces
 set laststatus=2        " Always show the status bar.
 set numberwidth=4       " By default set number column width to 4.
 set diffopt+=vertical   " Always use vertical diffs.
+set pastetoggle=<F3>    " Toggle paste mode
 
 " Automatic indentation.
 set smartindent
